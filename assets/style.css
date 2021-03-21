@@ -1,6 +1,7 @@
 * {
     font-family: Fjalla One;
     font-size: 20px;
+    box-sizing: content-box;
 }
 
 .display-4 {
@@ -38,7 +39,7 @@ ul {
 }
 
 li {
-    text-align: left;
+    text-align: center;
     padding: 5px;
     margin: 10px;
     border-top: 2px solid #363c42;
@@ -51,7 +52,7 @@ li {
 }
 
 .currentCard {
-    height: 65vh;
+    height: 60vh;
     width: 60vh;
     background-color: #212529;
     display: block;
@@ -67,11 +68,12 @@ p {
     display: block;
     margin: auto;
     padding: 5px;
+    text-align: center;
 }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 30%;
+    height: 30%;
 }
 
 div.fiveDayColor {
@@ -85,11 +87,10 @@ div.fiveDayColor {
 }
 
 div.card {
-    border: 5px solid white;
+    border: 10px solid white;
 }
 
 .indicator {
-    border: 5px solid white;
+    border: 10px solid white;
     color: white;
 }
-

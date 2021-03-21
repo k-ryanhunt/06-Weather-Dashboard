@@ -8,13 +8,8 @@ for (var i = 0; i < localStorage.length; i++) {
 }
 searchButton.click(function () {
   var searchInput = $(".searchInput").val();
-  let urlCurrent =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchInput +
-    "&Appid=" +
-    apiKey +
-    "&units=imperial";
-
+  let urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
+  
   if (searchInput == "") {
   } else {
     fetch(urlCurrent, { method: "GET" })
@@ -33,7 +28,7 @@ searchButton.click(function () {
         var currentTime = moment().format("MMMM Do");
         currentCard.empty();
         currentCard.append (
-            "<h1>" + response.name + "</h1>" +
+            "<h2>" + response.name + "</h2>" +
             "<h4>" + currentTime + "</h4>" +
             `<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">` +
             "<li>" + "Temperature: " + response.main.temp + "°F" + "</li>" +
@@ -42,10 +37,9 @@ searchButton.click(function () {
         );
     
         var currentTemp = currentName;
+        let indexURL = `https://api.openweathermap.org/data/2.5/uvi?appid=40ad46380b6d8c16e4ee5168aa8adc07&lat=${response.coord.lat}&lon=${response.coord.lon}`;
 
-        let urlUV = `https://api.openweathermap.org/data/2.5/uvi?appid=40ad46380b6d8c16e4ee5168aa8adc07&lat=${response.coord.lat}&lon=${response.coord.lon}`;
-
-        fetch(urlUV, { method: "GET" })
+        fetch(indexURL, { method: "GET" })
           .then(function (data) {
             return data.json();
           })
@@ -54,20 +48,20 @@ searchButton.click(function () {
             currentUV.addClass("indicator");
             currentTemp.append(currentUV);
             var UVindex = document.querySelector(".indicator");
-            if (response.value >= 6) {
+            if (response.value >= 8) {
                 UVindex.style.borderColor = "red";
-            } else if (response.value <= 3) {
-                UVindex.style.borderColor = "green";
+            } else if (response.value >= 3) {
+              UVindex.style.borderColor = "orange";
             } else {
-                UVindex.style.borderColor = "yellow";
+                UVindex.style.borderColor = "green";
             }
           });
       });
   }
 
-  let urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
+  let fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
 
-  fetch(urlFiveDay, { method: "GET" })
+  fetch(fiveDayURL, { method: "GET" })
     .then(function (data) {
       return data.json();
     })
@@ -76,11 +70,11 @@ searchButton.click(function () {
       var fiveDayDiv = $(".fiveDayOne").addClass("card-text");
       fiveDayDiv.empty();
       day.forEach(function (i) {
-        var fiveDayTimeUTC1 = moment((response.list[i].dt * 1000)).format("MMMM Do");
+        var fiveDayDate = moment((response.list[i].dt * 1000)).format("MMMM Do");
 
         fiveDayDiv.append(
         "<div class=fiveDayColor>" +
-            "<li>" + fiveDayTimeUTC1 + "</li>" +
+            "<li>" + fiveDayDate + "</li>" +
             "<li>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "</li>" +
             "<li>" + "Temp: " + response.list[i].main.temp + "°F" + "</li>" +
             "<li>" + "Humidity: " + response.list[i].main.humidity + "%" + "</li>" +
