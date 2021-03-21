@@ -67,7 +67,7 @@ searchButton.click(function () {
     })
     .then(function (response) {
       var day = [0, 8, 16, 24, 32];
-      var fiveDayDiv = $(".fiveDayOne").addClass("card-text");
+      var fiveDayDiv = $(".fiveDayOne").addClass("card-text flex-grow");
       fiveDayDiv.empty();
       day.forEach(function (i) {
         var fiveDayDate = moment((response.list[i].dt * 1000)).format("MMMM Do");

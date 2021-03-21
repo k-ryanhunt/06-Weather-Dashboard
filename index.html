@@ -18,8 +18,11 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather Dashboard</title>
   </head>
@@ -30,40 +33,47 @@
         <h1 class="display-4">Weather Dashboard</h1>
       </div>
     </div>
-
-    <div class="container-fluid">
-
-      <div class="container">
-        <div class="row">
-          <div class="col mt-5">
-            <div class="card-body text-center">
-              <div class="card">
-                <div class="card-body">
-                  <div class="input-group mb-3">
-                    <input type="text" placeholder="Search For A City" class="form-control searchInput" aria-describedby="button-addon2"/>
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary bg-dark searchButton" type="button" id="button-addon2">
-                        <i class="fas fa-search-location"></i>
-                      </button>
-                    </div>
-                  </div>
-
-                  <ul class="list-group"></ul>
+    <div class="container">
+      <div class="row">
+        <aside class="col-3 mt-5">
+          <div class="card-body text-center">
+            <div class="card">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  placeholder="Search For A City"
+                  class="form-control searchInput"
+                  aria-describedby="button-addon2"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary bg-dark searchButton"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    <i class="fas fa-search-location"></i>
+                  </button>
                 </div>
               </div>
+
+              <ul class="list-group"></ul>
             </div>
           </div>
-          <div class="col mt-5">
-            <div class="card currentCard pb-2 pt-1">
-            </div>
-          </div>
-        </div>
-        <div class="flex-container">
-          <div class="col mt-5">
-            <div class="card pb-5 fiveDayCard pl-5">
-              <h5 class="card-title mt-2 mr-5 mx-auto d-flex p-2">5-Day Forecast</h5>
-              <div class="row">
-                <div class="col fiveDayOne mx-auto"></div>
+        </aside>
+        <div class="col mt-5">
+          <h3 class="card-title">
+            Current Weather
+          </h3>
+          <div class="card currentCard pb-2 pt-1"></div>
+          <div class="flex-container">
+            <div class="col mt-5">
+              <div class="card pb-5 fiveDayCard pl-5">
+                <h3 class="card-title">
+                  5-Day Forecast
+                </h3>
+                <div class="row">
+                  <div class="col fiveDayOne mx-auto"></div>
+                </div>
               </div>
             </div>
           </div>
