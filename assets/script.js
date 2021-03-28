@@ -25,15 +25,14 @@ searchButton.click(function () {
 
         var currentCard = $(".currentCard").append("<div>").addClass("card-body");
         var currentName = currentCard.append("<h1>");
-        var currentTime = moment().format("MMMM Do");
+        var currentDay = moment().format("MMMM Do");
         currentCard.empty();
         currentCard.append (
-            "<h2>" + response.name + "</h2>" +
-            "<h4>" + currentTime + "</h4>" +
+            "<h4>" + response.name + " - " + currentDay + "</h4>" +
             `<img src="https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png">` +
-            "<li>" + "Temperature: " + response.main.temp + "°F" + "</li>" +
-            "<li>" + "Humidity: " + response.main.humidity + "%" + "</li>" +
-            "<li>" + "Wind Speed: " + response.wind.speed + "</li>"
+            "<ol>" + "Temperature: " + response.main.temp + "°F" + "</ol>" +
+            "<ol>" + "Humidity: " + response.main.humidity + "%" + "</ol>" +
+            "<ol>" + "Wind Speed: " + response.wind.speed + "</ol>"
         );
     
         var currentTemp = currentName;
@@ -44,14 +43,13 @@ searchButton.click(function () {
             return data.json();
           })
           .then(function (response) {
-            var currentUV = currentTemp.append("<li>" + "UV Index: " + response.value + "</li>").addClass("card-text");
-            currentUV.addClass("indicator");
+            var currentUV = currentTemp.append("<ol>" + "UV Index: " + response.value + "</ol>").addClass("card-text indicator");
             currentTemp.append(currentUV);
             var UVindex = document.querySelector(".indicator");
             if (response.value >= 8) {
                 UVindex.style.borderColor = "red";
             } else if (response.value >= 3) {
-              UVindex.style.borderColor = "orange";
+                UVindex.style.borderColor = "orange";
             } else {
                 UVindex.style.borderColor = "green";
             }
@@ -71,13 +69,13 @@ searchButton.click(function () {
       fiveDayDiv.empty();
       day.forEach(function (i) {
         var fiveDayDate = moment((response.list[i].dt * 1000)).format("MMMM Do");
-
+        console.log(response)
         fiveDayDiv.append(
         "<div class=fiveDayColor>" +
-            "<li>" + fiveDayDate + "</li>" +
+            "<h4>" + fiveDayDate + "</h4>" +
             "<li>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "</li>" +
-            "<li>" + "Temp: " + response.list[i].main.temp + "°F" + "</li>" +
-            "<li>" + "Humidity: " + response.list[i].main.humidity + "%" + "</li>" +
+            "<ol>" + "Temp: " + response.list[i].main.temp + "°F" + "</ol>" +
+            "<ol>" + "Humidity: " + response.list[i].main.humidity + "%" + "</ol>" +
         "</div>"
         );
       });

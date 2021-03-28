@@ -6,7 +6,7 @@ For this project, we were tasked with creating a weather website that would show
 
 ## How did I do it?
 
-I pulled the information from the OpenWeather website and targeted the specific information that I needed. I then appended everything to the page to resemble the mock-up that we were provided.  For the UV index, I chose 
+I pulled the information from the OpenWeather website and targeted the specific information that I needed. I then appended everything to the page to resemble the mock-up that we were provided.  For the UV index, I chose to create the entire border to indicate whether or not there were favorable conditions in the area.  As the user continues to search for cities, the searched cities will append to the page.  On refresh, only the most recent will show.
 
 ## Example of what the Weather Dashboard looks like
 
