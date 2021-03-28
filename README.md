@@ -2,7 +2,7 @@
 
 ## What was the Weather Dashboard Project about?
 
-For this project, we were tasked with creating a weather website that would show the current weather, and then the weather for the next 5 days as well. The client also wanted an indicator of some sort to show whether or not the UV index had favorable conditions.
+For this project, we were tasked with creating a weather website using the Open Weather API that would show the current weather, UV index, and then the weather for the next 5 days as well. The client also wanted an indicator of some sort to show whether or not the UV index had favorable conditions.
 
 ## How did I do it?
 
@@ -14,3 +14,4 @@ I pulled the information from the OpenWeather website and targeted the specific 
 
 ## Try it out here!
 
+https://k-ryanhunt.github.io/Weather-Dashboard/
